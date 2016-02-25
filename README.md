@@ -5,3 +5,4 @@ Added a web interface for adding realtime widgets to a ticker homepage.
 
 Widgets can be rearranged using drag-and-drop (using jQuery UI).
 
+Open `dist/index.html`
