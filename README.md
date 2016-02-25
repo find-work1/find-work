@@ -1,11 +1,7 @@
-# Telestrap
+Using the [telestrap](https://github.com/iamsteadman/telestrap)
+teletext-inspired bootstrap theme.
 
-This is a Bootstrap theme with a [Teletext-style font](http://www.fonts2u.com/teletext-regular-regular.font),
-inspired by the text services we used to get before the Web and digital TV ruined everything.
+Added a web interface for adding realtime widgets to a ticker homepage.
 
-It's pretty much just a novely project, so don't expect much support :)
+Widgets can be rearranged using drag-and-drop (using jQuery UI).
 
-## Usage
-
-Install [Bootstrap](http://getbootstrap.com/) as you normally would, then add the theme CSS
-(`dist/css/bootstrap-theme.css`). You'll find a bunch of examples in the repo.
