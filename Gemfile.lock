@@ -27,6 +27,7 @@ GEM
     multi_json (1.11.2)
     permessage_deflate (0.1.2)
     rack (1.6.4)
+    rack-rewrite (1.5.1)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -37,6 +38,8 @@ PLATFORMS
 DEPENDENCIES
   faye
   permessage_deflate
+  rack
+  rack-rewrite
 
 BUNDLED WITH
    1.11.2
