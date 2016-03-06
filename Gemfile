@@ -50,3 +50,4 @@ end
 gem "websocket-rails"
 gem "socket_helpers"
 gem 'gemoji'
+gem 'rails_12factor', group: :production

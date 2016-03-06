@@ -1,0 +1,1206 @@
+/*
+ * Globals
+ */
+
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11,
+.col-xs-12 {
+    outline: 1px solid white;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0;
+    font-weight: normal;
+}
+
+/*
+ * Override Bootstrap's default container.
+ */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/*
+ * Masthead for nav
+ */
+
+.blog-masthead {
+    background-color: #000;
+    -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+    box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+}
+
+/* Nav links */
+.blog-nav-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    font-weight: 500;
+    color: #cdddeb;
+}
+
+.blog-nav-item:hover,
+.blog-nav-item:focus {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Active state gets a caret at the bottom */
+.blog-nav .active {
+    color: #fff;
+}
+
+.blog-nav .active:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    vertical-align: middle;
+    content: " ";
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid;
+    border-left: 5px solid transparent;
+}
+
+/*
+ * Blog name and description
+ */
+
+.blog-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.blog-title {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: normal;
+}
+.blog-description {
+    font-size: 20px;
+    color: #999;
+}
+
+/*
+ * Main column and sidebar layout
+ */
+
+.blog-main {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Sidebar modules for boxing content */
+.sidebar-module {
+    padding: 15px;
+    margin: 0 -15px 15px;
+}
+.sidebar-module-inset {
+    padding: 15px;
+    background-color: #333;
+    border-radius: 0;
+}
+.sidebar-module-inset p:last-child,
+.sidebar-module-inset ul:last-child,
+.sidebar-module-inset ol:last-child {
+    margin-bottom: 0;
+}
+
+/* Pagination */
+.pager {
+    margin-bottom: 60px;
+    text-align: left;
+}
+.pager > li > a {
+    width: 140px;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 0;
+}
+
+/*
+ * Blog posts
+ */
+
+.blog-post {
+    margin-bottom: 60px;
+}
+.blog-post-title {
+    margin-bottom: 5px;
+    font-size: 40px;
+}
+.blog-post-meta {
+    margin-bottom: 20px;
+    color: #999;
+}
+
+/*
+ * Code
+ */
+
+code, pre {
+    background: #333;
+    color: #000;
+    font-family: monospace;
+}
+
+/*
+ * Footer
+ */
+
+.blog-footer {
+    padding: 40px 0;
+    color: #999;
+    text-align: center;
+    background-color: #333;
+    border-top: 1px dashed #e5e5e5;
+}
+
+.blog-footer p:last-child {
+    margin-bottom: 0;
+}
+/* line 1, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+body {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* line 5, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.jumbotron {
+  background: #0000ff;
+}
+
+/* line 8, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.jumbotron h1 {
+  color: #ffff00;
+}
+
+/* line 11, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a {
+  color: #ffff00;
+}
+
+/* line 14, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a:hover,
+a:focus {
+  color: #ffff00;
+  border-bottom: 1px dashed #ffff00;
+}
+
+/* line 19, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.text-success {
+  color: #00ff00;
+}
+
+/* line 22, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.text-info {
+  color: #00ffff;
+}
+
+/* line 25, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.text-warning {
+  color: #ff7700;
+}
+
+/* line 28, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.text-danger {
+  color: #ff0000;
+}
+
+/* line 31, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote {
+  line-height: 1.5em;
+}
+
+/* line 42, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.jumbotron {
+  text-align: center;
+}
+
+/* line 45, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.jumbotron h1 {
+  line-height: 1em;
+  /* Small devices (tablets, 768px and up) */
+  /* Medium devices (desktops, 992px and up) */
+  /* Large devices (large desktops, 1200px and up) */
+}
+
+@media (min-width: 768px) {
+  /* line 52, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+  .jumbotron h1 {
+    font-size: 64px;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
+}
+@media (min-width: 992px) {
+  /* line 63, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+  .jumbotron h1 {
+    font-size: 96px;
+  }
+}
+@media (min-width: 1200px) {
+  /* line 68, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+  .jumbotron h1 {
+    font-size: 128px;
+  }
+}
+/* line 72, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.jumbotron p {
+  font-size: 32px;
+}
+
+/* line 75, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.jumbotron a.btn.btn-primary,
+.jumbotron button.btn.btn-primary,
+.jumbotron input.btn.btn-primary {
+  background-color: #000000;
+}
+
+/* line 80, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.page-header {
+  margin: 0 auto;
+  padding: 0;
+  border-bottom: none;
+  background: -moz-linear-gradient(top, rgba(0, 0, 240, 0) 0%, rgba(0, 0, 240, 0) 45%, #0000f0 45.1%, #0000f0 60%, rgba(0, 0, 240, 0) 60.1%, rgba(0, 0, 240, 0) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 240, 0)), color-stop(45%, rgba(0, 0, 240, 0)), color-stop(45.1%, #0000f0), color-stop(60%, #0000f0), color-stop(60.1%, rgba(0, 0, 240, 0)), color-stop(100%, rgba(0, 0, 240, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 240, 0) 0%, rgba(0, 0, 240, 0) 45%, #0000f0 45.1%, #0000f0 60%, rgba(0, 0, 240, 0) 60.1%, rgba(0, 0, 240, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(0, 0, 240, 0) 0%, rgba(0, 0, 240, 0) 45%, #0000f0 45.1%, #0000f0 60%, rgba(0, 0, 240, 0) 60.1%, rgba(0, 0, 240, 0) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(0, 0, 240, 0) 0%, rgba(0, 0, 240, 0) 45%, #0000f0 45.1%, #0000f0 60%, rgba(0, 0, 240, 0) 60.1%, rgba(0, 0, 240, 0) 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, rgba(0, 0, 240, 0) 0%, rgba(0, 0, 240, 0) 45%, #0000f0 45.1%, #0000f0 60%, rgba(0, 0, 240, 0) 60.1%, rgba(0, 0, 240, 0) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000f0', endColorstr='#000000f0', GradientType=0);
+  /* IE6-9 */
+}
+
+/* line 99, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.page-header h1 {
+  color: #ffff00;
+  padding-left: 16px;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 64px;
+}
+
+/* line 106, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+h1.page-header {
+  color: #ffff00;
+  padding-left: 16px;
+  font-weight: bold;
+  font-size: 64px;
+  line-height: 64px;
+}
+
+/* line 113, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+hr {
+  border-color: #ff0000;
+}
+
+@font-face {
+  font-family: 'Teletext regular Regular';
+  src: url("/../fonts/teletext_regular.eot?") format("eot"), url("/../fonts/teletext_regular.woff") format("woff"), url("/../fonts/teletext_regular.ttf") format("truetype"), url("/../fonts/teletext_regular.svg#Teletext-regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 122, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+body {
+  font-family: 'Teletext regular Regular';
+}
+
+/* line 125, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+h1 {
+  font-size: 64px;
+  font-weight: normal;
+}
+
+/* line 129, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default {
+  background: #ffffff;
+}
+
+/* line 132, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default a.navbar-brand {
+  color: #000000;
+}
+
+/* line 135, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default .navbar-nav {
+  font-size: 16px;
+}
+
+/* line 138, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default .navbar-nav li > a {
+  color: #000000;
+}
+
+/* line 141, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default .navbar-nav li.active > a {
+  background: #ffff00;
+}
+
+/* line 144, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default .navbar-nav li > .dropdown-menu {
+  margin-top: 1px;
+}
+
+/* line 147, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default .navbar-nav li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav li > .dropdown-menu > li > a:focus {
+  color: #000000;
+}
+
+/* line 151, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default .navbar-nav li.divider {
+  background-color: #000;
+}
+
+/* line 154, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-default .navbar-nav .open > a,
+.navbar-default .navbar-nav .open > a:focus,
+.navbar-default .navbar-nav .open > a:hover {
+  background: #ddd;
+  border-bottom-width: 0;
+}
+
+/* line 160, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse {
+  background: #000;
+}
+
+/* line 163, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse a.navbar-brand {
+  color: #ffffff;
+}
+
+/* line 166, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse .navbar-nav {
+  font-size: 16px;
+}
+
+/* line 169, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse .navbar-nav li a {
+  color: #ffffff;
+}
+
+/* line 172, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse .navbar-nav li.active a {
+  color: #ffff00;
+}
+
+/* line 175, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse .navbar-nav li > .dropdown-menu {
+  margin-top: 0;
+  border-width: 0;
+  background: #000;
+}
+
+/* line 180, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse .navbar-nav li > .dropdown-menu > li > a:hover,
+.navbar-inverse .navbar-nav li > .dropdown-menu > li > a:focus {
+  color: #ffffff;
+}
+
+/* line 184, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse .navbar-nav li > .dropdown-menu > li.divider {
+  background-color: #fff;
+}
+
+/* line 187, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.navbar-inverse .open > a,
+.navbar-inverse .open > a:focus,
+.navbar-inverse .open > a:hover {
+  border-bottom-width: 0;
+}
+
+/* line 192, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav > li a,
+.nav > li a:focus,
+.nav > li a:hover {
+  background: transparent;
+  color: #ffffff;
+}
+
+/* line 198, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav > li.active a,
+.nav > li.active a:focus,
+.nav > li.active a:hover {
+  background: transparent;
+  color: #ffff00;
+}
+
+/* line 204, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav.nav-tabs {
+  border-bottom: 1px dashed #ffff00;
+}
+
+/* line 207, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav.nav-tabs > li > a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+
+/* line 212, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav.nav-tabs > li > a,
+.nav.nav-tabs > li > a:focus,
+.nav.nav-tabs > li > a:hover {
+  background: transparent;
+  color: #ffff00;
+}
+
+/* line 218, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav.nav-tabs > li > a:hover,
+.nav.nav-tabs > li > a:focus {
+  border: 1px dashed #ffff00;
+}
+
+/* line 222, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav.nav-tabs > li.active a {
+  border: 1px dashed #ffff00;
+}
+
+/* line 225, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav-pills > li > a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+
+/* line 230, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav-pills .open > a,
+.nav-pills .open > a:focus,
+.nav-pills .open > a:hover {
+  border-bottom-width: 0;
+  color: #000000;
+}
+
+/* line 236, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav-pills .open .dropdown-menu > li > a {
+  color: #000000;
+}
+
+/* line 239, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.nav-pills .open .dropdown-menu > li.divider {
+  background: #000000;
+  height: 5px;
+}
+
+/* line 243, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.dropdown-menu {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  border: 5px solid #000;
+  border-top-width: 0;
+  margin-left: -5px;
+}
+
+/* line 253, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.dropdown-menu li.divider {
+  height: 5px;
+}
+
+/* line 256, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn,
+button.btn,
+input.btn {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+
+/* line 263, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn.btn-default,
+button.btn.btn-default,
+input.btn.btn-default {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+/* line 270, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn.btn-primary,
+button.btn.btn-primary,
+input.btn.btn-primary {
+  background-color: #0000ff;
+  border-color: #0000ff;
+  color: #ffffff;
+}
+
+/* line 277, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn.btn-success,
+button.btn.btn-success,
+input.btn.btn-success {
+  background-color: #00ff00;
+  border-color: #00ff00;
+  color: #000000;
+}
+
+/* line 284, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn.btn-info,
+button.btn.btn-info,
+input.btn.btn-info {
+  background-color: #00ffff;
+  border-color: #00ffff;
+  color: #000000;
+}
+
+/* line 291, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn.btn-warning,
+button.btn.btn-warning,
+input.btn.btn-warning {
+  background-color: #ff7700;
+  border-color: #ff7700;
+  color: #ffffff;
+}
+
+/* line 298, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn.btn-danger,
+button.btn.btn-danger,
+input.btn.btn-danger {
+  background-color: #ff0000;
+  border-color: #ff0000;
+  color: #ffffff;
+}
+
+/* line 305, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+a.btn.btn-link,
+button.btn.btn-link,
+input.btn.btn-link {
+  background-color: transparent;
+  border-color: transparent;
+  color: #ffff00;
+}
+
+/* line 312, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.label {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+
+/* line 317, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.label.label-default {
+  background-color: transparent;
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+/* line 322, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.label.label-primary {
+  background-color: transparent;
+  border-bottom: 1px solid #0000ff;
+  color: #ffffff;
+}
+
+/* line 327, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.label.label-success {
+  background-color: transparent;
+  border-bottom: 1px solid #00ff00;
+  color: #ffffff;
+}
+
+/* line 332, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.label.label-info {
+  background-color: transparent;
+  border-bottom: 1px solid #00ffff;
+  color: #ffffff;
+}
+
+/* line 337, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.label.label-warning {
+  background-color: transparent;
+  border-bottom: 1px solid #ff7700;
+  color: #ffffff;
+}
+
+/* line 342, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.label.label-danger {
+  background-color: transparent;
+  border-bottom: 1px solid #ff0000;
+  color: #ffffff;
+}
+
+/* line 347, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table > thead > tr > th {
+  border-bottom: 1px dashed #ffffff;
+}
+
+/* line 350, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table > tbody > tr > td,
+.table > tfoot > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > th {
+  border-top: 1px dashed #ffffff;
+}
+
+/* line 356, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-bordered {
+  border: 1px dashed #ffffff;
+}
+
+/* line 359, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-bordered > thead > tr > th {
+  border-bottom-width: 0;
+}
+
+/* line 362, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-bordered > thead > tr > td,
+.table.table-bordered > tbody > tr > td,
+.table.table-bordered > tfoot > tr > td,
+.table.table-bordered > thead > tr > th,
+.table.table-bordered > tbody > tr > th,
+.table.table-bordered > tfoot > tr > th {
+  border: 1px dashed #ffffff;
+}
+
+/* line 370, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-striped > tbody > tr:nth-of-type(odd) {
+  background: #000000;
+}
+
+/* line 373, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-hover > tbody > tr:hover {
+  background-color: transparent;
+}
+
+/* line 376, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-hover > tbody tr.info th,
+.table.table-hover > tbody tr.info td {
+  background: #00ffff;
+  color: #000000;
+}
+
+/* line 381, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-hover > tbody tr.success th,
+.table.table-hover > tbody tr.success td {
+  background: #00ff00;
+  color: #000000;
+}
+
+/* line 386, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-hover > tbody tr.warning th,
+.table.table-hover > tbody tr.warning td {
+  background: #ff7700;
+  color: #ffffff;
+}
+
+/* line 391, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-hover > tbody tr.danger th,
+.table.table-hover > tbody tr.danger td {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+/* line 396, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.table.table-hover > tbody tr.active th,
+.table.table-hover > tbody tr.active td {
+  background: #0000ff;
+  color: #ffffff;
+}
+
+/* line 401, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.badge {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+/* line 409, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.alert {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+
+/* line 414, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.alert.alert-success {
+  background-color: #00ff00;
+  border-color: #00ff00;
+  color: #000000;
+}
+
+/* line 419, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.alert.alert-info {
+  background-color: #00ffff;
+  border-color: #00ffff;
+  color: #000000;
+}
+
+/* line 424, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.alert.alert-warning {
+  background-color: #ff7700;
+  border-color: #ff7700;
+  color: #ffffff;
+}
+
+/* line 429, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.alert.alert-danger {
+  background-color: #ff0000;
+  border-color: #ff0000;
+  color: #ffffff;
+}
+
+/* line 434, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.progress {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  background: #000000;
+}
+
+/* line 440, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.progress .progress-bar {
+  background-color: #0000ff;
+  border-color: #0000ff;
+}
+
+/* line 444, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.progress .progress-bar-success {
+  background-color: #00ff00;
+  border-color: #00ff00;
+}
+
+/* line 448, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.progress .progress-bar-info {
+  background-color: #00ffff;
+  border-color: #00ffff;
+}
+
+/* line 452, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.progress .progress-bar-warning {
+  background-color: #ff7700;
+  border-color: #ff7700;
+}
+
+/* line 456, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.progress .progress-bar-danger {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+/* line 460, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.progress.progress-striped .progress-bar {
+  background-image: -webkit-linear-gradient(90deg, #000000 25%, transparent 25%, transparent 50%, #000000 50%, #000000 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(90deg, #000000 25%, transparent 25%, transparent 50%, #000000 50%, #000000 75%, transparent 75%, transparent);
+  background-image: linear-gradient(90deg, #000000 25%, transparent 25%, transparent 50%, #000000 50%, #000000 75%, transparent 75%, transparent);
+}
+
+/* line 465, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.list-group .list-group-item {
+  background: #000000;
+  border: 1px dashed #ffffff;
+}
+
+/* line 469, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.list-group .list-group-item:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  -moz-border-top-left-radius: 0;
+  -moz-border-top-right-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 0;
+}
+
+/* line 477, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.list-group .list-group-item:last-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-bottom-left-radius: 0;
+  -moz-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+}
+
+/* line 485, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.list-group .list-group-item.active,
+.list-group .list-group-item.active:focus,
+.list-group .list-group-item.active:hover {
+  background: #0000ff;
+}
+
+/* line 490, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.list-group a.list-group-item:focus,
+.list-group a.list-group-item:hover {
+  background: transparent;
+  color: #ffff00;
+}
+
+/* line 495, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.list-group a.list-group-item:focus.active,
+.list-group a.list-group-item:hover.active {
+  border: 1px dashed #ffff00;
+}
+
+/* line 499, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.list-group a.list-group-item:focus .list-group-item-text,
+.list-group a.list-group-item:hover .list-group-item-text {
+  color: #333;
+}
+
+/* line 503, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  background: #000000;
+  border: 1px solid #ffffff;
+}
+
+/* line 510, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel .panel-heading {
+  background: #000000;
+  border-width: 0;
+}
+
+/* line 514, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel .panel-title {
+  color: #ffffff;
+}
+
+/* line 517, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-primary {
+  border-color: #0000ff;
+}
+
+/* line 520, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-primary .panel-heading {
+  background: #0000ff;
+}
+
+/* line 523, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-success {
+  border-color: #00ff00;
+}
+
+/* line 526, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-success .panel-heading {
+  background: #00ff00;
+}
+
+/* line 529, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-success .panel-heading .panel-title {
+  color: #000000;
+}
+
+/* line 532, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-info {
+  border-color: #00ffff;
+}
+
+/* line 535, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-info .panel-heading {
+  background: #00ffff;
+}
+
+/* line 538, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-info .panel-heading .panel-title {
+  color: #000000;
+}
+
+/* line 541, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-warning {
+  border-color: #ff7700;
+}
+
+/* line 544, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-warning .panel-heading {
+  background: #ff7700;
+}
+
+/* line 547, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-warning .panel-heading .panel-title {
+  color: #ffffff;
+}
+
+/* line 550, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-danger {
+  border-color: #ff0000;
+}
+
+/* line 553, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-danger .panel-heading {
+  background: #ff0000;
+}
+
+/* line 556, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.panel.panel-danger .panel-heading .panel-title {
+  color: #ffffff;
+}
+
+/* line 559, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.well {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  background: #ffffff;
+  color: #000000;
+}
+
+/* line 566, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.form-control {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  background: #333;
+  color: #ffffff;
+  border-width: 0;
+}
+
+/* line 574, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.form-control:focus {
+  outline: none;
+}
+
+/* line 577, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+code,
+pre {
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  border-width: 0;
+}
+
+/* line 585, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.carousel-caption {
+  text-shadow: none;
+}
+
+/* line 588, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.carousel-indicators li {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+}
+
+/* line 593, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pager > li.disabled a {
+  background: transparent;
+  color: #333;
+}
+
+/* line 597, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pager > li.disabled a:hover,
+.pager > li.disabled a:focus {
+  background: transparent;
+  color: #333;
+  border-color: #ffffff;
+}
+
+/* line 603, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pager > li > a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  border: 1px dashed #ffffff;
+  background: transparent;
+}
+
+/* line 610, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pager > li > a:hover {
+  background: transparent;
+  border-color: #ffff00;
+}
+
+/* line 614, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li:first-child a {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  -moz-border-top-left-radius: 0;
+  -moz-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+}
+
+/* line 622, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li:last-child a {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -moz-border-top-right-radius: 0;
+  -moz-border-bottom-right-radius: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+}
+
+/* line 630, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li > a {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  border: 1px dashed #ffffff;
+  background: transparent;
+  color: #ffffff;
+}
+
+/* line 638, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li > a:hover,
+.pagination > li > a:focus {
+  background: transparent;
+  border-color: #ffff00;
+  color: #ffff00;
+}
+
+/* line 644, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li.disabled a {
+  background: transparent;
+  color: #333;
+}
+
+/* line 648, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li.disabled a:hover,
+.pagination > li.disabled a:focus {
+  background: transparent;
+  color: #333;
+}
+
+/* line 653, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li.active a {
+  background: #0000ff;
+  color: #ffffff;
+}
+
+/* line 657, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.pagination > li.active a:hover,
+.pagination > li.active a:focus {
+  background: #0000ff;
+  color: #ffff00;
+}
+
+/* line 662, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.breadcrumb {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-clip: padding-box;
+  background: #333;
+  color: #ffffff;
+}
+
+/* line 669, /home/max/Desktop/tickers/app/assets/stylesheets/bootstrap-theme.css.scss.erb */
+.breadcrumb > li + li::before {
+  content: " > ";
+}
+/* line 1, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, /home/max/Desktop/tickers/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+
+ */
+
