@@ -54,3 +54,4 @@ gem 'rails_12factor', group: :production
 
 gem 'resque', "~> 1.22.0"
 gem "resque-scheduler"
+gem 'resque-web', require: 'resque_web'
