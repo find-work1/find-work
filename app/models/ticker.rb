@@ -6,7 +6,7 @@ class Ticker < ActiveRecord::Base
     ticker.update(output: ticker.create_and_execute_file)
     WebsocketRails["ticker"].trigger("update", Oj.dump(ticker.attributes.merge('record_class')))
     # call this same method again.
-    Resque.enqueue_in((ticker.interval / 1000).seconds, Ticker, ticker.id)
+    Resque.enqueue_in(ticker.interval.seconds, Ticker, ticker.id)
   end
 
   def create_and_execute_file
