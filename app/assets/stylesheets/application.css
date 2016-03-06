@@ -15,3 +15,8 @@
  *= require blog
  *= require_self
  */
+
+#editor {
+    /** Setting height is also important, otherwise editor wont showup**/
+    height: 300px;
+}

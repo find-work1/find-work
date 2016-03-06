@@ -15,21 +15,15 @@
         <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Telestrap theme CSS -->
-        <link href="./assets/bootstrap-theme.css" rel="stylesheet">
+        <link href="<%= asset_url("bootstrap-theme.css") %>" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="./assets/blog.css" rel="stylesheet">
+        <link href="<%= asset_url("blog.css") %>" rel="stylesheet">
     </head>
 
     <body>
-        <div class="blog-masthead">
-            <div class="container">
-                <nav class="blog-nav">
-                    <a class="blog-nav-item" href="./index.html">Tickers</a>
-                    <a class="blog-nav-item active" href="#">Telestrap</a>
-                </nav>
-            </div>
-        </div>
+    
+    <%= render "nav", active: 'sample' %>
 
         <div class="container">
             <div class="blog-header">

@@ -10,4 +10,12 @@ class PagesController < ApplicationController
     websocket_response(User.create, "create")
     render text: ""
   end
+  def create
+    ticker = Ticker.create(ticker_params)
+    flash[:message] = "created ticker"
+    redirect_to "/"
+  end
+
+  private; def ticker_params; params.permit(:name, :content, :interval); end
+
 end

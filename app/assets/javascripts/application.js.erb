@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 // require turbolinks
+//= require ace
+//= require theme-monokai
+//= require mode-javascript
+//= require mode-ruby
 //= require websocket_rails/main
 //= require socket_helpers
 //= require_tree .
@@ -22,4 +26,15 @@
 
 $(function(){
   SocketHelpers.initialize(["user"], "<%= root_url %>/websocket")
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/ruby");
+
+ var textarea = $('#create-form');
+  editor.getSession().on('change', function () {
+     textarea.val(editor.getSession().getValue());
+ });
+
+ textarea.val(editor.getSession().getValue());
+
 })
