@@ -21,5 +21,5 @@
 <% root_url = "maxp-tickers.herokuapp.com" if Rails.env.production? %>
 
 $(function(){
-  SocketHelpers.initialize(["user"], "#{root_url}/websocket")
+  SocketHelpers.initialize(["user"], "<%= root_url %>/websocket")
 })

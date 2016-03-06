@@ -59,6 +59,7 @@ GEM
     faye-websocket (0.10.0)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.5.1)
+    gemoji (2.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hiredis (0.6.1)
@@ -183,6 +184,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  gemoji
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)

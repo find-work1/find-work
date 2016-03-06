@@ -49,3 +49,4 @@ end
 
 gem "websocket-rails"
 gem "socket_helpers"
+gem 'gemoji'
