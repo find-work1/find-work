@@ -16,3 +16,8 @@
 //= require websocket_rails/main
 //= require socket_helpers
 //= require_tree .
+
+
+$(function(){
+  SocketHelpers.initialize(["user"], "localhost:3000/websocket")
+})
