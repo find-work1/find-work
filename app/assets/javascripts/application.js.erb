@@ -25,16 +25,18 @@
 <% root_url = "maxp-tickers.herokuapp.com" if Rails.env.production? %>
 
 $(function(){
-  SocketHelpers.initialize(["user"], "<%= root_url %>/websocket")
-  var editor = ace.edit("editor");
-  editor.setTheme("ace/theme/monokai");
-  editor.getSession().setMode("ace/mode/ruby");
+  SocketHelpers.initialize(["ticker"], "<%= root_url %>/websocket")
+  
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/ruby");
 
- var textarea = $('#create-form');
-  editor.getSession().on('change', function () {
-     textarea.val(editor.getSession().getValue());
- });
+   var textarea = $('#create-form');
+    editor.getSession().on('change', function () {
+       textarea.val(editor.getSession().getValue());
+   });
 
- textarea.val(editor.getSession().getValue());
+   textarea.val(editor.getSession().getValue());
+ 
 
 })

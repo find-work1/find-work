@@ -4,4 +4,5 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   include SocketHelpers::ControllerHelpers
   http_basic_authenticate_with(name: "max", password: "password")
+  
 end

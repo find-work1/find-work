@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
   def create
     ticker = Ticker.create(ticker_params)
+    ticker.update(output: ticker.create_and_execute_file)
     flash[:message] = "created ticker"
     redirect_to "/"
   end

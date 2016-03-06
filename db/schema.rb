@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160306114058) do
+ActiveRecord::Schema.define(version: 20160306144434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tickers", force: :cascade do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "interval"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "output"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

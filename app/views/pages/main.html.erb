@@ -30,20 +30,23 @@
             <div class="row">
                 <br><br>
             </div>
-            <div class="row">
-                <div class="blog-post">
-                    <div class="col-xs-4 blog-main">
-                        <div class="user-index">
-                            <div template>
-                                <span template-attr="id"></span> <br>
+            <% Ticker.all.each_slice(3) do |slice| %>
+                <div class="row">
+                    <% slice.each do |ticker| %>
+                        <div class="blog-post">
+                            <div class="col-xs-4 blog-main">
+                                <span binding-tag="ticker,<%= ticker.id %>,output"></span> <br>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-4 blog-main">asd</div>
-                    <div class="col-xs-4 blog-main">asd</div>
+                    <% end %>
                 </div>
-            </div>
+            <% end %>
         </div>
+
+        <% @tickers = Ticker.all.map do |ticker| %>
+        <%   ticker.attributes.merge('record_class' => 'ticker') %>
+        <% end %>
+        <div init="ticker"><%= Oj.dump(@tickers) %></div>
 
         <!-- Bootstrap core JavaScript
         ================================================== -->

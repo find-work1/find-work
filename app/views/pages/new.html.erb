@@ -31,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <form action="create" method="GET">
+                    <form skip-sockets action="create" method="GET">
                         <input class="form-control" type="text" name="name" placeholder="name"> <br>
                         <input id="create-form" type="hidden" name="content">
                         <%= render "ace_editor" %> <br>
