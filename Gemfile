@@ -46,8 +46,6 @@ group :development do
 end
 
 
-gem "rack"
-gem "permessage_deflate"
-gem "faye"
-gem 'rack-rewrite'
 
+gem "websocket-rails"
+gem "socket_helpers"
