@@ -11,9 +11,15 @@ class PagesController < ApplicationController
     render text: ""
   end
   def create
-    ticker = Ticker.create(ticker_params.merge(interval: 1))
+    ticker = Ticker.create(ticker_params)
     ticker.begin
     flash[:message] = "created ticker"
+    redirect_to "/"
+  end
+  def destroy
+    ticker = Ticker.find_by(id: params[:id])
+    ticker.kill
+    ticker.destroy
     redirect_to "/"
   end
 
