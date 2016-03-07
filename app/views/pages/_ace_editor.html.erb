@@ -5,11 +5,17 @@
 </div>
 <div class="panel-body">
 <div id="editor">
-def foo
-x = "All this is syntax highlighted";
-return x;
-end
-puts foo
+<% if ticker.content %>
+<%= ticker.content %>
+<% else %>
+# something like:
+# `curl "localhost:3000/update_output?name=ThisTickerName\&amp;output=#{SecureRandom.urlsafe_base64}"`
+
+# do not use "exit"
+# and do not raise any errors, or zombie processes may result
+
+<% end %>
+
 </div>
 </div>
 </div>

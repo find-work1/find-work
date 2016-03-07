@@ -1,6 +1,10 @@
 class Ticker < ActiveRecord::Base
+  @@process_name_constant = "tickers_process_" # used to find orphan processes
   validates :name, presence: true
   @queue = :file_serve
+  def self.killall
+    `pkill -f tickers`
+  end
   def attributes
     {
       'id' => id,
@@ -12,11 +16,16 @@ class Ticker < ActiveRecord::Base
     super(val)
   end
   def kill
-    pid = `ps aux | grep #{process_name.first(5)} | awk 'NR==1{print $2}'`.chomp
-    `kill -9 #{pid}`
+    2.times {
+      pid = `ps aux | grep #{process_name.first(25)} | awk 'NR==1{print $2}'`.chomp
+      `kill -9 #{pid}`
+      sleep 1
+    }
   end
   def begin
-    tempfile_name = SecureRandom.urlsafe_base64
+    tempfile_name = @@process_name_constant + SecureRandom.urlsafe_base64
+    # tempfile name is used to name processes. It's important to include a constant in the name (i.e. "tickers")
+    # so that the process can be found if it becomes  a orphan.
     file = Tempfile.new(tempfile_name)
     file_text = <<-RUBY
       $0 = "#{tempfile_name}"
@@ -31,7 +40,7 @@ class Ticker < ActiveRecord::Base
     cmd = <<-SH
       echo "load '#{tempfile_path}'" | rails console
     SH
-    cmd_pid = spawn(cmd, pgroup: true) # cant get this pid to actually work
+    cmd_pid = spawn(cmd, pgroup: true)
     self.update(process_name: tempfile_name)
     Process.detach(cmd_pid)
   end

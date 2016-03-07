@@ -1,3 +1,6 @@
+<% ticker ||= @ticker %>
+<% ticker ||= Ticker.new %>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,11 +35,12 @@
             <div class="row">
                 <div class="col-xs-12">
                     <form skip-sockets action="create" method="GET">
-                        <input class="form-control" type="text" name="name" placeholder="name"> <br>
+                        <input class="form-control" type="text" name="name" placeholder="name" value="<%= ticker.name %>"> <br>
+                        <input type="hidden" name="id" value="<%= ticker.id %>">
                         <input id="create-form" type="hidden" name="content">
-                        <%= render "ace_editor" %> <br>
-                        <input class="form-control" type="number" name="interval" placeholder="interval(milliseconds)"><br>
-                        <input class="btn btn-primary" type="submit" value="create">
+                        <%= render "ace_editor", ticker: ticker %> <br>
+                        <input class="form-control" type="number" name="interval" placeholder="interval(milliseconds)" value="<%= ticker.interval %>"><br>
+                        <input class="btn btn-primary" type="submit" value="<%= ticker.persisted? ? "update" : "create" %>">
                     </form>
                 </div>
             </div>

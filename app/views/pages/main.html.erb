@@ -35,8 +35,10 @@
                     <% slice.each do |ticker| %>
                         <div class="blog-post">
                             <div class="col-xs-4 blog-main">
+                                <h4><%= ticker.name %></h4>
                                 <span binding-tag="ticker,<%= ticker.id %>,output"></span> <br>
-                                <a href="destroy?id=<%= ticker.id %>">destroy</a>
+                                <a href="new?id=<%= ticker.id %>">Edit</a>
+                                <a class="confirm" href="destroy?id=<%= ticker.id %>">Destroy</a>
                             </div>
                         </div>
                     <% end %>
