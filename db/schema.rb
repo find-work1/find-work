@@ -20,8 +20,9 @@ ActiveRecord::Schema.define(version: 20160306144434) do
     t.string   "name"
     t.text     "content"
     t.integer  "interval"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "process_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.text     "output"
   end
 

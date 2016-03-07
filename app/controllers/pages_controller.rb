@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   end
   def create
     ticker = Ticker.create(ticker_params.merge(interval: 1))
-    Resque.set_schedule("ticker#{ticker.id}", {class: "Ticker", args: ticker.id, cron: "1-56/5 * * * *", persist: true}) 
+    ticker.begin
     flash[:message] = "created ticker"
     redirect_to "/"
   end

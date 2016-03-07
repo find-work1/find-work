@@ -2,27 +2,28 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
-require 'resque/tasks'
-require 'resque_scheduler/tasks'
 Rails.application.load_tasks
 
 
-namespace :resque do
-  task :setup do
-    require 'resque'
+# require 'resque/tasks'
+# require 'resque_scheduler/tasks'
 
-    # you probably already have this somewhere
-    Resque.redis = 'localhost:6379'
-  end
+# namespace :resque do
+#   task :setup do
+#     require 'resque'
 
-  task :setup_schedule => :setup do
-    require 'resque_scheduler'
+#     # you probably already have this somewhere
+#     Resque.redis = 'localhost:6379'
+#   end
 
-    Resque::Scheduler.dynamic = true
+#   task :setup_schedule => :setup do
+#     require 'resque_scheduler'
 
-    Resque.schedule = YAML.load_file('config/resque_schedule.yml')
+#     Resque::Scheduler.dynamic = true
 
-  end
+#     Resque.schedule = YAML.load_file('config/resque_schedule.yml')
 
-  task :scheduler => :setup_schedule
-end
+#   end
+
+#   task :scheduler => :setup_schedule
+# end
