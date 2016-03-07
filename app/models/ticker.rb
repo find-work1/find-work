@@ -1,6 +1,12 @@
 class Ticker < ActiveRecord::Base
   validates :name, presence: true
   @queue = :file_serve
+  def attributes
+    {
+      'id' => id,
+      'output' => output
+    }
+  end
   def interval=(val)
     val ||= 1000
     super(val)

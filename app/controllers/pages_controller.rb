@@ -1,4 +1,12 @@
 class PagesController < ApplicationController
+  def update_output
+    ticker = Ticker.find_by(id: params[:id])
+    ticker ||= Ticker.find_by(name: params[:name])
+    output = params[:output]
+    ticker.update(output: output)
+    websocket_response(ticker, "update")
+    render text: ""
+  end
   def sample
   end
   def main

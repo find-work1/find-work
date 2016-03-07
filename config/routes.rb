@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get "create_user", to: "pages#create_user"
   get "create", to: "pages#create"
   get "destroy", to: "pages#destroy"
+  get "update_output", to: "pages#update_output"
 end

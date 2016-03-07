@@ -58,3 +58,4 @@ gem 'rails_12factor', group: :production
 # gem 'resque-backtrace', require: false
 
 gem "pry-rails"
+gem "oj"
