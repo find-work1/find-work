@@ -1,3 +1,13 @@
+PATH
+  remote: /home/max/Desktop/resque-web
+  specs:
+    resque-web (0.0.7)
+      coffee-rails
+      jquery-rails
+      resque
+      sass-rails
+      twitter-bootstrap-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -156,12 +166,6 @@ GEM
       redis (>= 3.0.0)
       resque (>= 1.20.0, < 1.25)
       rufus-scheduler (~> 2.0)
-    resque-web (0.0.7)
-      coffee-rails
-      jquery-rails
-      resque
-      sass-rails
-      twitter-bootstrap-rails
     rufus-scheduler (2.0.24)
       tzinfo (>= 0.3.22)
     sass (3.4.21)
@@ -250,7 +254,7 @@ DEPENDENCIES
   resque (~> 1.22.0)
   resque-backtrace
   resque-scheduler
-  resque-web
+  resque-web!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   socket_helpers
