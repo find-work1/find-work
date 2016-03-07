@@ -1,0 +1,5 @@
+do_my_job:
+  every: 2s
+  class: ResqueTest
+  args:
+  description: Runs the perform method in ResqueTest
