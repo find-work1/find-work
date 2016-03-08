@@ -3,7 +3,7 @@ class Ticker < ActiveRecord::Base
   validates :name, presence: true
   @queue = :file_serve
   def self.killall
-    `pkill -f tickers`
+    `pkill -f #{@@process_name_constant}`
   end
   def attributes
     {
@@ -29,7 +29,7 @@ class Ticker < ActiveRecord::Base
     file = Tempfile.new(tempfile_name)
     file_text = <<-RUBY
       $0 = "#{tempfile_name}"
-      while true
+      loop do
         #{self.content}
         sleep #{self.interval.to_f / 1000}
       end
@@ -41,7 +41,7 @@ class Ticker < ActiveRecord::Base
       echo "load '#{tempfile_path}'" | rails console
     SH
     cmd_pid = spawn(cmd, pgroup: true)
-    self.update(process_name: tempfile_name)
     Process.detach(cmd_pid)
+    self.update(process_name: tempfile_name)
   end
 end
