@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   
       http_basic_authenticate_with(name: ENV["username"], password: ENV["password"], except: [:update_output])
 
-
   def update_output
     ticker = Ticker.find_by(id: params[:id])
     ticker ||= Ticker.find_by(name: params[:name])
@@ -17,11 +16,29 @@ class PagesController < ApplicationController
   end
   def sample
   end
+  def kill
+    ticker = Ticker.find_by(id: params[:id])
+    ticker && ticker.kill
+    flash[:message] = "stopped ticker process"
+    redirect_to :back
+  end
+  def killall
+    Ticker.killall
+    flash[:message] = "stopped all processes"
+    redirect_to :back
+  end
   def main
     render "main"
   end
   def new
     @ticker = Ticker.find_by(id: params[:id])
+  end
+  def start
+    ticker = Ticker.find_by(id: params[:id])
+    ticker.kill if ticker.process_name
+    ticker.begin
+    flash[:message] = "started ticker process"
+    redirect_to :back
   end
   def create_user
     websocket_response(User.create, "create")
@@ -29,9 +46,10 @@ class PagesController < ApplicationController
   end
   def create
     ticker = Ticker.find_by(id: params[:id]) || Ticker.new
+    ticker.kill if ticker.process_name
     ticker.update(ticker_params)
     ticker.begin
-    flash[:message] = "created ticker"
+    flash[:message] = "Saved ticker"
     redirect_to "/"
   end
   def destroy

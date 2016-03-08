@@ -29,16 +29,26 @@
         <div class="container">
             <div class="row">
                 <br><br>
+                <a href="killall">killall</a>
+                <br><br>
             </div>
-            <% Ticker.all.each_slice(3) do |slice| %>
+            <% Ticker.all.each_slice(1) do |slice| %>
                 <div class="row">
                     <% slice.each do |ticker| %>
                         <div class="blog-post">
-                            <div class="col-xs-4 blog-main">
-                                <h4><%= ticker.name %></h4>
-                                <span binding-tag="ticker,<%= ticker.id %>,output"></span> <br>
-                                <a href="new?id=<%= ticker.id %>">Edit</a>
-                                <a class="confirm" href="destroy?id=<%= ticker.id %>">Destroy</a>
+                            <div class="col-xs-12 blog-main">
+                                <div toggles=".ticker-content-<%= ticker.id %>"><%= ticker.name %></div>
+                                <div class="ticker-content-<%= ticker.id %>">
+                                    <% if ticker.process_name.blank? %>
+                                        <a class="" href="start?id=<%= ticker.id %>">start</a>
+                                    <% else %>
+                                        <a class="" href="kill?id=<%= ticker.id %>">stop</a>
+                                    <% end %>
+                                    <br> <br>
+                                    <pre binding-tag="ticker,<%= ticker.id %>,output"></pre> <br>
+                                    <a href="new?id=<%= ticker.id %>">Edit</a>
+                                    <a class="confirm" href="destroy?id=<%= ticker.id %>">Destroy</a>
+                                </div>
                             </div>
                         </div>
                     <% end %>

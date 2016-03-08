@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "new", to: "pages#new"
   get "create_user", to: "pages#create_user"
   get "create", to: "pages#create"
+  get "start", to: "pages#start"
+  get "kill", to: "pages#kill"
+  get "killall", to: "pages#killall"
   get "destroy", to: "pages#destroy"
   get "update_output", to: "pages#update_output"
 end

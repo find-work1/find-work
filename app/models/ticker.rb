@@ -21,6 +21,7 @@ class Ticker < ActiveRecord::Base
       `kill -9 #{pid}`
       sleep 1
     }
+    self.update(process_name: nil)
   end
   def begin
     tempfile_name = @@process_name_constant + SecureRandom.urlsafe_base64
