@@ -38,12 +38,4 @@ $(function(){
    });
 
    textarea.val(editor.getSession().getValue());
- 
-
-   $(".confirm").on("click", function(e) {
-      if(!(confirm("are you sure?"))) {
-        e.preventDefault();
-      }
-   })
-   
 })
