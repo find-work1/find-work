@@ -39,25 +39,32 @@
 
   - There are two instance methods on Ticker which control the background jobs:
 
-### `begin`
-- creates a filename containing a constant identifier ("tickers_process_") and a random string
-- Writes the script content to a tempfile with this filename.
-- When writing the file, adds some wrapper code around
-  the script content.
-- `loop do` and `sleep` are added in order to loop it every N milliseconds (which is determined by the interval column)
-- `$0 = "#{tempfile_name}" is used to set the process name for the script. Setting this makes it easier to find the script's pid using `ps aux`.
-- Next the script is run by using system exec (backticks) to spin up a rails console and issuing it a `load` command to have it run the tempfile.
-- It turns out that the most difficult part of spawning subprocesses is doing in a way that enables stopping them. I experiemented with a number of commands, including `fork`, `spawn`, and `thread`. The returned value of these methods is a PID, but I found that the actual PID of the process dynamically changed and so this can't dependaby be used to stop the background job. Somewhat confusingly, a method calling these commands (i.e. `spawn`) will continue on to the next statement without waiting for the subprocess to compete, but if the method is run from a REPL, the prompt won't be returned to the user. I fixed this by plugging in the returned PID to `Process.detach(pid)`. I ended up going with `spawn` because it offers a `pgroup: true` option. This option tells it to start a new "process group" for the spawned command. I'm not sure how much it really does but it supposedly prevents orphaning child processes. 
-- Finally, the Ticker record's `process_name` column is updated to the tempfile name.
-- There would some bugs I didn't solve. When a background job ran `curl`, the server would show all the curl requests in it's logs. I tried `> /dev/null` but still wasn't able to hide these. A second bug is orphan processes. I can't say for sure what causes this issue, but I suspect that certain errors being raised in the background job might cause it. 
+    -**`begin`**
+      - creates a filename containing a constant identifier ("tickers_process_") and a random string
+      - Writes the script content to a tempfile with this filename.
+      - When writing the file, adds some wrapper code around
+        the script content.
+      - `loop do` and `sleep` are added in order to loop it every N milliseconds (which is determined by the interval column)
+      - `$0 = "#{tempfile_name}" is used to set the process name for the script. Setting this makes it easier to find the script's pid using `ps aux`.
+      - Next the script is run by using system exec (backticks) to spin up a rails console and issuing it a `load` command to have it run the tempfile.
+      - It turns out that the most difficult part of spawning subprocesses is doing in a way that enables stopping them. I experiemented with a number of commands, including `fork`, `spawn`, and `thread`. The returned value of these methods is a PID, but I found that the actual PID of the process dynamically changed and so this can't dependaby be used to stop the background job. Somewhat confusingly, a method calling these commands (i.e. `spawn`) will continue on to the next statement without waiting for the subprocess to compete, but if the method is run from a REPL, the prompt won't be returned to the user. I fixed this by plugging in the returned PID to `Process.detach(pid)`. I ended up going with `spawn` because it offers a `pgroup: true` option. This option tells it to start a new "process group" for the spawned command. I'm not sure how much it really does but it supposedly prevents orphaning child processes. 
+      - Finally, the Ticker record's `process_name` column is updated to the tempfile name.
+      - There would some bugs I didn't solve. When a background job ran `curl`, the server would show all the curl requests in it's logs. I tried `> /dev/null` but still wasn't able to hide these. A second bug is orphan processes. I can't say for sure what causes this issue, but I suspect that certain errors being raised in the background job might cause it. 
 
-### `stop`
-- Thankfully much simpler than `begin`
-- Basically, a running background job's PID is looked up by a ticker's `process_name`. 
-- The following command is used for this: `ps aux | grep #{process_name.first(25)} | awk 'NR==1{print $2}`
-- Then `kill -9 #{pid}` is used to do the actual killing.
+    - **`stop`**
+      - Thankfully much simpler than `begin`
+      - Basically, a running background job's PID is looked up by a ticker's `process_name`. 
+      - The following command is used for this: `ps aux | grep #{process_name.first(25)} | awk 'NR==1{print $2}`
+      - Then `kill -9 #{pid}` is used to do the actual killing.
 
-### `killall`
-- This command is to kill all background jobs (including orphans).
-- It's one line is `pkill -f #{@@process_name_constant}` This kills all processes with a name partially matching the argument. 
-- TODO: run this on Rails server exit to ensure that the jobs don't keep running. 
+  - There is also one class method on `Ticker`:
+    - **`killall`**
+      - This command is to kill all background jobs (including orphans).
+      - It's one line is `pkill -f #{@@process_name_constant}` This kills all processes with a name partially matching the argument. 
+      - TODO: run this on Rails server exit to ensure that the jobs don't keep running. 
+
+- After writing this background job system, I now needed a way for the background scripts to send updates to my websocket listeners. I tried using `WebsocketRails["channelName"].trigger` but found that it only worked when run from my Rails controller. So I made a Rails endpoint which calls this method, and called that endpoint from the background job using `curl`.
+
+- At this point I was pretty satisfied. I added an "edit" form. The heroku deploy was working fine with the Telestrap theme but I hadn't debugged the background job system yet.
+
+- Thanks for reading! Contribute if you want! 
