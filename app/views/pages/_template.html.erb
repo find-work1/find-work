@@ -21,31 +21,18 @@
         <link href="<%= asset_url("blog.css") %>" rel="stylesheet">
     </head>
 
-    <body>  
+    <body>
 
-        <%= render "nav", active: 'main' %>
+        <%= render "nav", active: 'tickers' %>
 
-<div class="container">
-<div class="row">
-<div class="col-xs-12">
-    <div class="user-index">
-        <div template="">
-            <li template-attr="name"></li>            
+        <div class="container">
+            <%= content %>
         </div>
-    </div>
-</div>
-</div>
-</div>
-
-        <% @users = User.all.map do |user| %>
-        <%   user.attributes.merge('record_class' => 'user') %>
-        <% end %>
-        <div init="user"><%= Oj.dump(@users) %></div>
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>      
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     </body>
 </html>

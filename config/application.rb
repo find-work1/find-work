@@ -8,7 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Rail
   class Application < Rails::Application
-    config.serve_static_assets = true
+    config.serve_static_files = true
 
     # config.autoload_paths << Rails.root.join("../resque-web/a**/*")
     

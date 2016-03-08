@@ -1,7 +1,11 @@
 <% active ||= nil %>
 
 <div class="blog-masthead"><div class="container"><nav class="blog-nav">
-    <a class="blog-nav-item <%= "active" if active=="tickers" %>" href="/">Tickers</a>
-    <a class="blog-nav-item <%= "active" if active=='new' %>" href="new">Create</a>
+    <a class="blog-nav-item <%= "active" if active=="main" %>" href="/">Main</a>
+    <a class="blog-nav-item <%= "active" if active=="tickers" %>" href="tickers">Tickers</a>
+    <a class="blog-nav-item <%= "active" if active=='new' %>" href="new">New ticker</a>
     <a class="blog-nav-item <%= "active" if active=='sample' %>" href="sample">Telestrap</a>
+    <% if current_user %>
+      <a class="blog-nav-item" href="logout">Logout</a>
+    <% end %>
 </nav></div></div>

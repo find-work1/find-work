@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   get "killall", to: "pages#killall"
   get "destroy", to: "pages#destroy"
   get "update_output", to: "pages#update_output"
+  get "auth", to: "pages#auth"
+  get "register", to: "pages#register"
+  get "login", to: "pages#login"
+  get "logout", to: "pages#logout"
 end

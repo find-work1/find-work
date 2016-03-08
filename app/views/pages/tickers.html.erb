@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../favicon.ico">
+
+        <title>Blog Template for Telestrap</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Telestrap theme CSS -->
+        <link href="<%= asset_url("bootstrap-theme.css") %>" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="<%= asset_url("blog.css") %>" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <%= render "nav", active: 'tickers' %>
+
+
+        <div class="container">
+            <div class="row">
+                <br><br>
+                <a href="killall">killall</a>
+                <br><br>
+            </div>
+            <% Ticker.all.each_slice(1) do |slice| %>
+                <div class="row">
+                    <% slice.each do |ticker| %>
+                        <div class="blog-post">
+                            <div class="col-xs-12 blog-main">
+                                <div toggles=".ticker-content-<%= ticker.id %>"><%= ticker.name %></div>
+                                <div class="ticker-content-<%= ticker.id %>">
+                                    <% if ticker.process_name.blank? %>
+                                        <a class="" href="start?id=<%= ticker.id %>">start</a>
+                                    <% else %>
+                                        <a class="" href="kill?id=<%= ticker.id %>">stop</a>
+                                    <% end %>
+                                    <a href="new?id=<%= ticker.id %>">Edit</a>
+                                    <a class="confirm" data-confirm="Are you sure?" href="destroy?id=<%= ticker.id %>">Destroy</a>
+                                    <br> <br>
+                                    <pre binding-tag="ticker,<%= ticker.id %>,output"></pre> <br>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+        <% @tickers = Ticker.all.map do |ticker| %>
+        <%   ticker.attributes.merge('record_class' => 'ticker') %>
+        <% end %>
+        <div init="ticker"><%= Oj.dump(@tickers) %></div>
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+</html>
