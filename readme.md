@@ -51,11 +51,11 @@
       - Finally, the Ticker record's `process_name` column is updated to the tempfile name.
       - There would some bugs I didn't solve. When a background job ran `curl`, the server would show all the curl requests in it's logs. I tried `> /dev/null` but still wasn't able to hide these. A second bug is orphan processes. I can't say for sure what causes this issue, but I suspect that certain errors being raised in the background job might cause it. 
 
-    - **`stop`**
-      - Thankfully much simpler than `begin`
-      - Basically, a running background job's PID is looked up by a ticker's `process_name`. 
-      - The following command is used for this: `ps aux | grep #{process_name.first(25)} | awk 'NR==1{print $2}`
-      - Then `kill -9 #{pid}` is used to do the actual killing.
+  - **`stop`**
+    - Thankfully much simpler than `begin`
+    - Basically, a running background job's PID is looked up by a ticker's `process_name`. 
+    - The following command is used for this: `ps aux | grep #{process_name.first(25)} | awk 'NR==1{print $2}`
+    - Then `kill -9 #{pid}` is used to do the actual killing.
 
   - There is also one class method on `Ticker`:
     - **`killall`**
